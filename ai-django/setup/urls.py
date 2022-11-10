@@ -2,21 +2,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from rest_framework import routers
+from rest_framework.urlpatterns import format_suffix_patterns
 
-from photographer_assistent.views import *
-from account.views import *
-
-
-router = routers.DefaultRouter()
-router.register(r'musics', MusicViewSet)
-router.register(r'librarys', LibraryViewSet)
-router.register(r'users', UserStaticsViewSet)
-router.register(r'color_configs', ColorConfigsViewSet)
-router.register(r'statics', UserStaticsViewSet)
+import musics.urls as music_urls
+import account.urls as accounts_urls
+import user.urls as user_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('', include(router.urls))
+    path('api-auth/', include('rest_framework.urls')),
+    path('', include(music_urls)),
+    path('user/', include(user_urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns = format_suffix_patterns(urlpatterns)

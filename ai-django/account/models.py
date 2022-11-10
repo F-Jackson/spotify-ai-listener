@@ -9,7 +9,6 @@ class UserModel(models.Model):
     user = models.OneToOneField(User, blank=True, unique=True, on_delete=models.CASCADE)
     country_code = models.IntegerField(blank=False, null=False)
     genre = models.CharField(default=GENRES_COICHES[0], max_length=1, blank=False, null=False)
-    created_date = models.DateField(default=timezone.now, blank=False, null=False, editable=False)
 
     class Meta:
         verbose_name = 'User'
@@ -36,7 +35,6 @@ class UserStaticsModel(models.Model):
     last_login_date = models.DateField(default=timezone.now, blank=False, null=False)
     time_using = models.TimeField()
     clustering_stats = models.JSONField()
-    last_songs = models.JSONField(default=LAST_SONGS_DEFAULT)
 
     class Meta:
         verbose_name = 'user_static'
