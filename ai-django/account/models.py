@@ -7,7 +7,7 @@ from .constants.models import *
 
 class UserModel(models.Model):
     user = models.OneToOneField(User, blank=True, unique=True, on_delete=models.CASCADE)
-    country_code = models.IntegerField(blank=False, null=False)
+    country_code = models.IntegerField(blank=True, null=True)
     genre = models.CharField(default=GENRES_COICHES[0], max_length=1, blank=False, null=False)
 
     class Meta:
@@ -32,9 +32,8 @@ class ColorConfigsModel(models.Model):
 
 class UserStaticsModel(models.Model):
     user = models.OneToOneField(User, blank=True, unique=True, on_delete=models.CASCADE)
-    last_login_date = models.DateField(default=timezone.now, blank=False, null=False)
-    time_using = models.TimeField()
-    clustering_stats = models.JSONField()
+    time_using = models.TimeField(null=True, blank=True)
+    clustering_stats = models.JSONField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'user_static'

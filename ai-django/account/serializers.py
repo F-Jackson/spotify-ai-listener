@@ -2,19 +2,19 @@ from rest_framework import serializers
 from .models import *
 
 
-class UserSerializer(serializers.ModelSerializer):
+class OtherSettingsSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        exclude = ('created_date',)
+        exclude = ('id', 'user')
 
 
 class ColorConfigsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ColorConfigsModel
-        fields = '__all__'
+        exclude = ('id', 'user')
 
 
 class UserStaticsSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserStaticsModel
-        exclude = ('clustering_stats', 'last_login_date')
+        exclude = ('id', 'user', 'clustering_stats', 'time_using')

@@ -5,7 +5,6 @@ from django.conf.urls.static import static
 from rest_framework.urlpatterns import format_suffix_patterns
 
 import musics.urls as music_urls
-import account.urls as accounts_urls
 import user.urls as user_urls
 
 urlpatterns = [
