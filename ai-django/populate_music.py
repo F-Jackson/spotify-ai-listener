@@ -45,21 +45,39 @@ def run():
 }
 
 {
-  "username": "jacks",
-  "first_name": "",
-  "last_name": "",
-  "email": "test@test.com",
-  "color_configs": {
-    "background_color": "#FFFFFF",
-    "menu_color": "#FFFFFF",
-    "button_color": "#000000",
-    "text_color": "#FFFFFF",
-    "music_background_color": "#A6A6A6"
-  },
-  "other_settings": {
-    "country_code": null,
-    "genre": "('U', 'Undefined')",
-  }
+   "username":"jacks",
+   "first_name":"",
+   "last_name":"",
+   "email":"test@test.com",
+   "color_configs":{
+      "background_color":"#FFFFFF",
+      "menu_color":"#FFFFFF",
+      "button_color":"#000000",
+      "text_color":"#FFFFFF",
+      "music_background_color":"#A6A6A6"
+   },
+   "other_settings":{
+      "country_code":null,
+      "genre":"U"
+   }
+}
+
+{
+   "username":"jac@ks",
+   "first_name":"",
+   "last_name":"",
+   "email":"test@test.com",
+   "color_configs":{
+      "background_color":"#FFFFFFF",
+      "menu_color":"#FFFFFF",
+      "button_color":"#000000",
+      "text_color":"#FFFFFF",
+      "music_background_color":"#A6A6A6"
+   },
+   "other_settings":{
+      "country_code":null,
+      "genre":"PO"
+   }
 }
 
 if __name__ == '__main__':

@@ -1,4 +1,5 @@
 from django.contrib.auth import logout
+from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.response import Response
 
@@ -14,22 +15,12 @@ def update_user(request) -> Response:
         user_data = get_data_from_request(request, False)
         other_data = get_data_from_request(request, True)
 
-        updaters = (
-            (UserSerializer, request.user, user_data),
-            (ColorConfigsSerializer, get_object(request, ColorConfigsModel), other_data['color_configs']),
-            (OtherSettingsSerializer, get_object(request, UserModel), other_data['other_settings']),
-        )
-
-        try:
-            serializers = prepare_models(updaters)
-        except ValueError as e:
-            return Response(e.args, status=status.HTTP_406_NOT_ACCEPTABLE)
+        if dont_has_email(request.user, user_data):
+            return update_or_error(request, user_data, other_data)
         else:
-            for serializer in serializers:
-                serializer.save()
-            logout(request)
-            return Response(status=status.HTTP_200_OK)
-    return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response({'email': 'already taken'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 def get_data_from_request(request, is_dict: bool) -> dict:
@@ -44,12 +35,43 @@ def type_is_dict(value) -> bool:
     return type(value) == dict
 
 
-def prepare_models(updaters) -> list:
+def dont_has_email(user, user_data) -> bool:
+    if user.email != user_data['email']:
+        user = User.objects.get(email=user_data['email'])
+
+        return user is None
+    return True
+
+
+def update_or_error(request, user_data, other_data) -> Response:
+    updaters = [
+        (UserSerializer, request.user, user_data),
+        (OtherSettingsSerializer, get_object(request, UserModel), other_data['other_settings']),
+        (ColorConfigsSerializer, get_object(request, ColorConfigsModel), other_data['color_configs']),
+    ]
+
+    serializers, erros = prepare_models(updaters)
+
+    if erros:
+        return Response(erros, status=status.HTTP_404_NOT_FOUND)
+    else:
+        return update_serializers(request, serializers)
+
+
+def prepare_models(updaters):
     serializers = []
+    erros = []
     for serializer, model, data in updaters:
         serializer_with_data = serializer(model, data=data, partial=True)
         if verify_serializer(serializer_with_data):
             serializers.append(serializer_with_data)
-            continue
-        raise ValueError("Wrong format in the given values")
-    return serializers
+        else:
+            erros.append(serializer_with_data.errors)
+    return serializers, erros
+
+
+def update_serializers(request, serializers) -> Response:
+    for serializer in serializers:
+        serializer.save()
+    logout(request)
+    return Response(status=status.HTTP_200_OK)

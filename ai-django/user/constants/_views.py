@@ -31,8 +31,6 @@ USER_UPDATE_NEED = (
     "first_name",
     "last_name",
     "email",
-    "country_code",
-    "genre",
     {
         "color_configs": [
             "background_color",

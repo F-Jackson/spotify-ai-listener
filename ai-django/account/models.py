@@ -8,7 +8,7 @@ from .constants.models import *
 class UserModel(models.Model):
     user = models.OneToOneField(User, blank=True, unique=True, on_delete=models.CASCADE)
     country_code = models.IntegerField(blank=True, null=True)
-    genre = models.CharField(default=GENRES_COICHES[0], max_length=1, blank=False, null=False)
+    genre = models.CharField(default=GENRES_COICHES[0][0], max_length=1, blank=False, null=False)
 
     class Meta:
         verbose_name = 'User'

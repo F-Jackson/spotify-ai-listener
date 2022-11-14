@@ -1,5 +1,15 @@
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.http import Http404
+
+
+def verify_user_auth(request) -> bool:
+    if request.user.is_authenticated:
+        if request.user.is_anonymous:
+            logout(request)
+            raise Http404
+        return True
+    return False
 
 
 def get_object(request, model) -> object:
@@ -9,8 +19,8 @@ def get_object(request, model) -> object:
         raise Http404
 
 
-def verify_user_existence(**data) -> bool:
-    return User.objects.filter(**data) is not None
+def verify_user_existence(**data) -> object:
+    return User.objects.filter(**data)
 
 
 def verify_serializer(serializer) -> bool:
@@ -27,6 +37,5 @@ def request_keys_verifier(data, verifier):
                 else:
                     v.append(False)
         else:
-            print(atr, data.keys())
             v.append(atr in data.keys())
     return all(v)
