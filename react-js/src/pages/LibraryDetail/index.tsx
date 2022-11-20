@@ -42,14 +42,14 @@ export default function LibraryDetail() {
             </div>
             <div>
                 <div>
-                    <field></field>
+                    {/* <field></field> */}
                     <button>add</button>
                 </div>
                 <div>
                     <ul>
                         <li>
                             <div>
-                                <img src="" alt="" srcset="" />
+                                <img src="" alt=""/>
                                 <button>add</button>
                             </div>
                             <div>

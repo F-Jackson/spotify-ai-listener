@@ -1,6 +1,5 @@
-import Footer from "components/Footer";
-import Header from "components/Header";
-import Template from "components/Template";
+import App from "pages/App";
+import Configs from "pages/Configs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 
@@ -8,13 +7,11 @@ export default function Router() {
     return (
         <BrowserRouter>
             <RecoilRoot>
-                <Header />
                 <Routes>
-                    <Route path="" element={<Template></Template>}>
-                        
+                    <Route path="/" element={<App />}>
+                        <Route path="configs" element={<Configs />} />
                     </Route>
                 </Routes>
-                <Footer />
             </RecoilRoot>
         </BrowserRouter>
     );

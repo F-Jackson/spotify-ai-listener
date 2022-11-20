@@ -5,13 +5,12 @@ export default function LibraryList() {
                 <li>
                     <article>
                         <header>
-                            <songFreq></songFreq>
                             <h2>Title</h2>
                             <button>config</button>
                         </header>
                         <main>
                             <img src="" alt="" />
-                            <Link></Link>
+                            {/* <Link></Link> */}
                             <button>Alet</button>
                             <button>Ia</button>
                         </main>

@@ -9,7 +9,7 @@ export default function Footer() {
             <div>
                 <p></p>
                 <p></p>
-                <Link />
+                {/* <Link /> */}
                 <div>
                     <p></p>
                     <ul>

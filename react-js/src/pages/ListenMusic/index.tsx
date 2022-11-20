@@ -14,7 +14,7 @@ export default function ListenMusic() {
                         </div>
                     </div>
                 </div>
-                <MusicTime></MusicTime>
+                {/* <MusicTime></MusicTime> */}
                 <div>
                     <button>--</button>
                     <button>-</button>
@@ -24,9 +24,9 @@ export default function ListenMusic() {
                 </div>
             </div>
             <div>
-                <Recomendations>
+                {/* <Recomendations>
                     
-                </Recomendations>
+                </Recomendations> */}
             </div>
         </section>
     )
