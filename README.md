@@ -6,6 +6,33 @@ The project was made using Django for the backend, React-ts for the frontend and
 
 [Project Live Demo >>>](https://spotify-ai-frontend-cb39i4imf-jackson-fernandes.vercel.app/#readme)
 
+## Status
+✅ Usable </br></br>
+☑ Finished
+
+## Features
+- User Registration
+- Jwt Authentication
+- User Customization
+- Musics Library Creation
+- Musics Inside Library Registration
+- Musics Search
+- Musics Recomendation
+
+## Technologies
+- Python
+- Typescript
+- Django
+- Django-Rest
+- PyJwt
+- Texblob
+- React
+- Axios
+- React-Recoil
+- SkLearn
+- Pandas
+
+
 ## Installation
 
 ### Front end
@@ -48,3 +75,7 @@ Add a new library
 Add Some musics
 
 Have Fun
+
+## Creator
+
+Made by Jackson Fernandes.
