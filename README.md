@@ -67,12 +67,16 @@ python manage.py runserver
 ## Usage
 
 Create your user
+![](https://github.com/F-Jackson/spotify-ai-listener/blob/main/setp1.gif)
 
 Change your user configs
+![](https://github.com/F-Jackson/spotify-ai-listener/blob/main/step2.gif)
 
 Add a new library
+![](https://github.com/F-Jackson/spotify-ai-listener/blob/main/step3.gif)
 
 Add Some musics
+![](https://github.com/F-Jackson/spotify-ai-listener/blob/main/step4.gif)
 
 Have Fun
 
