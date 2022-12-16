@@ -1,5 +1,5 @@
 from user.constants._validators import USER_USERNAME_MAX_SIZE, USER_USERNAME_REGEX, USER_PASSWORD_REGEX, \
-    USER_NAME_REGEX, USER_LAST_LOGIN_REGEX
+    USER_NAME_REGEX, USER_MAX_PHOTO_SIZE
 from user.validators.common import valide_max_length, valide_regex
 from user.validators.serializer_validation import SerializerValidator
 from validate_email import validate_email as email_is_valid
@@ -29,7 +29,7 @@ def validate_password(password):
 def validate_names(name):
     validators = [
         (valide_regex(name, USER_NAME_REGEX),
-            'The size must be: between 2 and 70; '
+            'The size must be: between 0 and 30; '
             'Must contains only: a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊ'
             'ËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.-')
     ]
@@ -39,8 +39,15 @@ def validate_names(name):
 
 def validate_email(email):
     validators = [
-        # (email_is_valid(email),
-        #  'Insert a valid Email')
+        (email_is_valid(email), 'Insert a valid Email')
+    ]
+
+    return SerializerValidator.validate(validators)
+
+
+def validate_photo(photo):
+    validators = [
+        (photo.size <= USER_MAX_PHOTO_SIZE, f'Image size must have {USER_MAX_PHOTO_SIZE} or less')
     ]
 
     return SerializerValidator.validate(validators)

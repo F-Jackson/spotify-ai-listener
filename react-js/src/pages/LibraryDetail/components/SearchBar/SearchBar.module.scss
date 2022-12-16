@@ -1,0 +1,22 @@
+@import "styles/variables";
+
+
+.searchBar {
+    width: 100%;
+    display: flex;
+
+    .searchBar__input {
+        border: 2px solid $button_color;
+        box-shadow: none;
+        padding: 4px;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        width: auto;
+    }
+}

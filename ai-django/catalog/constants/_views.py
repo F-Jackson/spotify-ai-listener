@@ -1,14 +1,12 @@
 MAX_LIBRARYS_PER_USER = 9
 
 LIBRARYS_CREATE_NEED = (
-    'name'
+    'name',
 )
 
 LIBRARYS_UPDATE_FILTER = (
     'name',
     'photo',
-    'play_random',
-    'use_ai'
 )
 
 LIBRARY_REQUEST_DELETE = 'musics_ids_to_delete'

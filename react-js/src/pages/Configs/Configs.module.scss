@@ -1,0 +1,101 @@
+@import "styles/variables";
+@import "styles/breakpoints";
+
+
+.configs__container {
+    width: 70%;
+    min-width: 200px;
+    max-width: 1000px;
+    position: relative;
+    z-index: 0;
+
+    form {
+        @media screen and (min-width: $tablet) {
+            display: grid;
+            grid-template-columns: 30% 30% auto;
+            grid-template-rows: repeat(2, auto);
+            gap: 5%;
+        }
+
+        .inputs__container {
+            display: flex;
+            flex-direction: column;
+            row-gap: $input_gap;
+            margin: 20px 0;
+        }
+
+        .inputs__container__color {
+            @media screen and (min-width: $tablet) {
+                grid-column: 2 / 4;
+                grid-row: 2;
+            }
+        }
+
+        .inputs__container__user {
+            @media screen and (min-width: $tablet) {
+                grid-column: 1 / 2;
+                grid-row: 2;
+            }
+        }
+        
+        .save__button {
+            width: 100%;
+            border: none;
+            height: 40px;
+            background-color: $button_color;
+            color: $text_color;
+
+            @media screen and (min-width: $tablet) {
+                grid-column: 3 / 4;
+                align-self: flex-end;
+            }
+        }
+        
+        .user__image__container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 0;
+
+
+            @media screen and (min-width: $tablet) {
+                margin: 0;
+                grid-column: 1 / 3;
+            }
+            
+            .user__image {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                z-index: 0;
+            }
+    
+            .put__image {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: 1;
+            }
+    
+            .put__image + label {
+                background-color: $button_color;
+                color: $text_color;
+                display: inline-block;
+                cursor: pointer;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 100px;
+            }
+        }
+    }
+}

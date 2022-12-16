@@ -1,0 +1,28 @@
+.musics {
+    width: 184px;
+    height: 100px;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+        margin: 0;
+        padding: 0;
+        height: 50px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .link {
+        margin: 0;
+        padding: 0;
+        height: 33px;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    }
+}

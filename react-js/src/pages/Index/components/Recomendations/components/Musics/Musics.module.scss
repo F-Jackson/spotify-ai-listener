@@ -1,0 +1,37 @@
+@import "styles/variables";
+
+.music {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: $music_background_color;
+
+    .music_image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .music__title, .music__author {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 16px;
+        height: 20px;
+        color: $text_color;
+        padding: 0 5px;
+    }
+
+    .music__title {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    .music__genre {
+        text-align: left;
+        width: 75%;
+        margin: auto 0;
+    }
+}

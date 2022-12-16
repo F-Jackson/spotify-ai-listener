@@ -1,0 +1,23 @@
+@import "styles/variables";
+
+.link {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $button_color;
+    overflow: hidden;
+    text-decoration: none;
+    
+    span {
+        color: $text_color;
+        font-size: 16px;
+    }
+
+    svg {
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
+}

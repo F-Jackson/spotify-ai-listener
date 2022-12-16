@@ -1,14 +1,11 @@
 from account.models import UserStaticsModel, ColorConfigsModel, UserModel
+from account.serializers import OtherSettingsSerializer, ColorConfigsSerializer, UserStaticsSerializer
 
-INFO_NOT_GET_USER = (
-    'id',
-    'user'
-)
 
 INFO_MODELS_TO_GET = (
-    UserModel,
-    ("color_configs", ColorConfigsModel),
-    ("statics", UserStaticsModel)
+    {'model': UserModel, 'serializer': OtherSettingsSerializer},
+    {'name': "color_configs", 'model': ColorConfigsModel, 'serializer': ColorConfigsSerializer},
+    {'name': "statics", 'model': UserStaticsModel, 'serializer': UserStaticsSerializer}
 )
 
 NEW_USER_NEEDS = (
@@ -23,6 +20,7 @@ LOGIN_USER_NEED = (
 )
 
 INFO_TO_DELETE_USER = (
+    'username',
     'password'
 )
 

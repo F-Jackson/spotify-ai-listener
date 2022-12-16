@@ -1,0 +1,61 @@
+@import "styles/variables";
+@import "styles/breakpoints";
+
+
+.music__container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+    row-gap: 3px;
+    column-gap: 10px;
+    
+
+    .music__title, .musics__author {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 3px 0;
+    }
+
+    .music__title {
+        grid-column: 2;
+        grid-row: 1;
+        color: $text_color;
+        margin: 0;
+        font-size: 17px;
+    }
+
+    .musics__author {
+        grid-column: 2;
+        grid-row: 2;
+        color: $text_color;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .play__button, .delete__button {
+        grid-row: 1 / 3;
+        height: 35px;
+        width: 35px;
+        color: $text_color;
+        background-color: $button_color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 100px;
+    }
+
+    .play__button {
+        grid-column: 3;
+    }
+
+    .delete__button {
+        grid-column: 1;
+    }
+}

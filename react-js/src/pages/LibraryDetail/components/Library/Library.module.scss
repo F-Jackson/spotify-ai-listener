@@ -1,0 +1,68 @@
+@import "styles/variables";
+
+
+.library {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    position: relative;
+    z-index: 0;
+    background-color: $menu_color;
+    flex-grow: 1;
+
+    .library__title {
+        margin: 0;
+        font-size: 19px;
+        color: $text_color;
+        padding: 0.5em 0.3em;
+    }
+
+    .library__image__container {
+        width: 100%;
+        position: relative;
+        z-index: 0;
+
+        .library__image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 0;
+        }
+    }
+
+    .library__musics__open {
+        color: $text_color;
+        background-color: transparent;
+        border: 2px solid $button_color;
+        height: 40px;
+        width: 100%;
+        text-align: left;
+        padding-left: 0.5em;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .library__musics__open__icon {
+            margin-right: 12px;
+            height: 19px;
+            width: 19px;
+        }
+    }
+
+    .library__musics__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: $text_color;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        height: 0px;
+        overflow-y: scroll;
+    }
+
+    .library__musics__list-open {
+        height: 150px;
+    }
+}

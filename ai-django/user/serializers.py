@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from user.validators.user import validate_username, validate_password, validate_names, validate_email
+from user.validators.user import validate_username, validate_password, validate_names, validate_email, validate_photo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -29,8 +29,14 @@ class UserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(erros)
         return value
 
-    def validate_email(self, value):
-        erros = validate_email(value)
+    # def validate_email(self, value):
+    #     erros = validate_email(value)
+    #     if erros:
+    #         raise serializers.ValidationError(erros)
+    #     return value
+
+    def validate_photo(self, value):
+        erros = validate_photo(value)
         if erros:
             raise serializers.ValidationError(erros)
         return value

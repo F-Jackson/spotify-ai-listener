@@ -1,22 +1,30 @@
+@import "styles/variables";
+
 .header {
     transition: all 100ms;
     height: 100vh;
-    background-color:azure;
+    background-color: $menu_color;
     width: 230px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     row-gap: 6%;
-    padding-top: 8px;
+    padding-top: 5px;
+    position:fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    overflow: hidden;
 
     .hambuger__button {
+        cursor: pointer;
         height: 35px;
         font-size: 16px;
         width: 35px;
         align-self: flex-start;
         margin-left: 15px;
-        color: pink;
+        color: $button_color;
     }
 
     .hambuger__button-active {
@@ -54,13 +62,22 @@
                 overflow: hidden;
                 text-align: center;
                 font-size: 21px;
-                color: black;
+                color: $text_color;
             }
     
             a {
-                background-color: pink;
+                background-color: $button_color;
                 height: 35px;
                 border-radius: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .edit__icon {
+                    width: 25px;
+                    height: 25px;
+                    color: $text_color;
+                }
             }
         }
     }
@@ -73,37 +90,26 @@
         align-items: center;
         justify-content: space-between;
         height: 100px;
-
-        .link {
-            height: 42px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: pink;
-            overflow: hidden;
-            text-decoration: none;
-            
-            span {
-                color: black;
-                font-size: 16px;
-            }
-
-            .icon {
-                display: none;
-                width: 0px;
-                height: 0px;
-            }
-        }
     }
 
-    .recomendations {
-        width: 80%;
-        border: 2px solid pink;
-        border-radius: 5px;
-        padding: 2px 5px;
-        margin: 0;
-        height: 100px;
+    .spotify__image__container {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 1rem;
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            color: $text_color;
+            text-align: center;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            margin: 0 auto;
+            margin-top: 1rem;
+            word-spacing: 7px;
+        }
     }
 }
 
@@ -143,25 +149,19 @@
 
     .links {
 
-        .link {
+        a {
             border-radius: 100px;
 
             span {
                 display: none;
             }
 
-            .icon {
+            svg {
                 display: block;
-                width: 35px;
-                height: 35px;
-                color: black;
+                width: 25px;
+                height: 25px;
+                color: $text_color;
             }
         }
-    }
-
-    .recomendations {
-        width: 42px;
-        height: 50px;
-        padding: 0;
     }
 }

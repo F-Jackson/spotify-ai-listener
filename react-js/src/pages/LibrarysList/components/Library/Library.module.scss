@@ -1,0 +1,107 @@
+@import "styles/variables";
+@import "styles/breakpoints";
+
+$margin_buttons: 0.5rem;
+
+
+.library {
+    width: 100%;
+    min-width: 200px;
+    max-width: $library_max_width;
+    height: $library_height_mobile;
+    display: grid;
+    background-color: $music_background_color;
+    grid-template-areas: 
+        "img title title title"
+        "img play play delete";
+
+    gap: 5%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+
+    @media screen and (min-width: $tablet) {
+        width: 300px;
+        height: $library_height;
+        grid-template-areas: 
+            "img img img img"
+            "title title title title"
+            "play play none delete"
+        ;
+        gap: 0;
+    }
+
+
+    .title {
+        font-size: 16px;
+        grid-area: title;
+        color: $text_color;
+        margin: 0;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        white-space: wrap;
+        overflow: hidden;
+        max-height: 92px;
+
+
+        @media screen and (min-width: $tablet) {
+            overflow:hidden;
+            height: 19px;
+            margin: 1rem 0.5rem;
+        }
+    }
+
+    .image {
+        grid-area: img;
+        height: $library_img_size_mobile;
+        width: $library_img_size_mobile;
+        align-self:flex-start;
+        justify-self: center;
+        margin: 0;
+
+
+        @media screen and (min-width: $tablet) {
+            width: $library_img_size;
+            height: $library_img_size;
+        }
+    }
+
+    .play {
+        cursor: pointer;
+        grid-area: play;
+        height: 40px;
+        width: 100%;
+        color: $text_color;
+        background-color: $button_color;
+        align-self: flex-end;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+
+
+        @media screen and (min-width: $tablet) {
+            width: 125px;
+            margin-left: $margin_buttons;
+            margin-bottom: $margin_buttons;
+        }
+    }
+
+    .delete {
+        cursor: pointer;
+        grid-area: delete;
+        height: 35px;
+        width: 35px;
+        border: none;
+        background-color: rgb(236, 84, 84);
+        border-radius: 5px;
+        align-self: flex-end;
+        justify-self: flex-end;
+
+
+        @media screen and (min-width: $tablet) {
+            margin-right: $margin_buttons;
+            margin-bottom: $margin_buttons;
+        }
+    }
+}

@@ -6,8 +6,11 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 import catalog.urls as music_urls
 import user.urls as user_urls
+from setup.documentation import DocumentationView
+
 
 urlpatterns = [
+    path('', DocumentationView.as_view()),
     path('admin/', admin.site.urls),
     path('', include(music_urls)),
     path('user/', include(user_urls))

@@ -1,0 +1,13 @@
+@import "styles/variables";
+@import "styles/breakpoints";
+
+
+.main {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: calc(100vw - 50px);
+    background-color: $background_color;
+    padding: 1rem 0;
+}

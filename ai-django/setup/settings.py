@@ -25,8 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'catalog',
+    'django_apscheduler',
     'rest_framework',
+    'jwt_auth',
+    'catalog',
     'account',
     'user'
 ]

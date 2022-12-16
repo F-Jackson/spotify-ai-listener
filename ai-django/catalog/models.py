@@ -27,8 +27,6 @@ class MusicModel(models.Model):
 class LibraryModel(models.Model):
     name: str = models.CharField(max_length=75, blank=False)
     photo = models.ImageField(blank=True)
-    play_random: bool = models.BooleanField(default=False)
-    use_ai: bool = models.BooleanField(default=True)
     user_owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
