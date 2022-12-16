@@ -1,5 +1,7 @@
 # Spotify-AI
 
+![](https://github.com/F-Jackson/spotify-ai-listener/blob/main/Screenshot_2.png)
+
 Spotify-AI is a project where you can register to create your own music libraries and be recommended with various songs of your interest.
 
 The project was made using Django for the backend, React-ts for the frontend and SkLearn for machine-learning.
